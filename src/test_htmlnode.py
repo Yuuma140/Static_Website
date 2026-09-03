@@ -1,18 +1,18 @@
 import unittest
-from htmlnode import HTMLNode
+from htmlnode import HTMLNode, LeafNode
 
 
 class TestHTMLNode(unittest.TestCase):
     def test_props_to_html(self):
         node = HTMLNode("a", "This is a link", None, {"href": "https://www.google.com", "target": "_blank"})
         actual = node.props_to_html()
-        expected = " href=https://www.google.com target=_blank"
+        expected = ' href="https://www.google.com" target="_blank"'
         self.assertEqual(actual, expected)
 
     def test_props_to_html_one(self):
         node = HTMLNode("h1", "This is a header", ["p", "b"], {"id": "header"})
         actual = node.props_to_html()
-        expected = " id=header"
+        expected = ' id="header"'
         self.assertEqual(actual, expected)
 
     def test_props_to_html_None(self):
@@ -20,3 +20,15 @@ class TestHTMLNode(unittest.TestCase):
         actual = node.props_to_html()
         expected = ""
         self.assertEqual(actual, expected)
+
+    def test_leaf_to_html_p(self):
+        node = LeafNode("p", "Hello, world!")
+        self.assertEqual(node.to_html(), "<p>Hello, world!</p>")
+
+    def test_leaf_to_html_a(self):
+        node = LeafNode("a", "Click Me!", {"href": "https://www.google.com"})
+        self.assertEqual(node.to_html(), '<a href="https://www.google.com">Click Me!</a>')
+
+    def test_leaf_to_html_no_tag(self):
+        node = LeafNode(None, "Hi!")
+        self.assertEqual(node.to_html(), "Hi!")
