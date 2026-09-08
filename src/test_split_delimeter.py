@@ -1,6 +1,6 @@
 import unittest
 from textnode import TextNode, TextType
-from inline_markdown import split_nodes_delimeter, split_nodes_image, split_nodes_link
+from inline_markdown import split_nodes_delimeter, split_nodes_image, split_nodes_link, text_to_textnodes
 
 class TestSplitNodesDelimeter(unittest.TestCase):
     def test_single_delimeter_pair(self):
@@ -173,5 +173,76 @@ class TestSplitNodesDelimeter(unittest.TestCase):
         expected = [
             TextNode("to boot dev", TextType.LINK, "https://www.boot.dev"),
             TextNode(" This is a link", TextType.TEXT),
+        ]
+        self.assertEqual(new_nodes, expected)
+
+    def test_text_to_textnodes(self):
+        nodes = "This is **text** with an _italic_ word and a `code block` and an ![obi wan image](https://i.imgur.com/fJRm4Vk.jpeg) and a [link](https://boot.dev)"
+        new_nodes = text_to_textnodes(nodes)
+        expected = [
+            TextNode("This is ", TextType.TEXT),
+            TextNode("text", TextType.BOLD),
+            TextNode(" with an ", TextType.TEXT),
+            TextNode("italic", TextType.ITALIC),
+            TextNode(" word and a ", TextType.TEXT),
+            TextNode("code block", TextType.CODE),
+            TextNode(" and an ", TextType.TEXT),
+            TextNode("obi wan image", TextType.IMAGE, "https://i.imgur.com/fJRm4Vk.jpeg"),
+            TextNode(" and a ", TextType.TEXT),
+            TextNode("link", TextType.LINK, "https://boot.dev"),
+        ]
+        self.assertEqual(new_nodes, expected)
+
+    def test_plain_text_to_textnodes(self):
+        nodes = "This is a plain text nothing more"
+        new_nodes = text_to_textnodes(nodes)
+        expected = [
+            TextNode("This is a plain text nothing more", TextType.TEXT),
+        ]
+        self.assertEqual(new_nodes, expected)
+
+    def test_single_split_textnodes(self):
+        nodes = "This is a text with a bold **word** and nothing more than that"
+        new_nodes = text_to_textnodes(nodes)
+        expected = [
+            TextNode("This is a text with a bold ", TextType.TEXT),
+            TextNode("word", TextType.BOLD),
+            TextNode(" and nothing more than that", TextType.TEXT),
+        ]
+        self.assertEqual(new_nodes, expected)
+
+    def test_multiple_same_split_textnodes(self):
+        nodes = "This is a text with a **bold word** and with another **bold word**"
+        new_nodes = text_to_textnodes(nodes)
+        expected = [
+            TextNode("This is a text with a ", TextType.TEXT),
+            TextNode("bold word", TextType.BOLD),
+            TextNode(" and with another ", TextType.TEXT),
+            TextNode("bold word", TextType.BOLD),
+        ]
+        self.assertEqual(new_nodes, expected)
+
+    def test_start_end_with_different_than_text(self):
+        nodes = "**starting with a bold text** and this is not a bold text _This is an italic text_"
+        new_nodes = text_to_textnodes(nodes)
+        expected = [
+            TextNode("starting with a bold text", TextType.BOLD),
+            TextNode(" and this is not a bold text ", TextType.TEXT),
+            TextNode("This is an italic text", TextType.ITALIC),
+        ]
+        self.assertEqual(new_nodes, expected)
+        
+    def test_unclosed_delimeter_raises_text_to_nodes(self):
+        nodes = "This is a text with **unclosed delimeter"
+        with self.assertRaises(Exception):
+            new_nodes = text_to_textnodes(nodes)
+
+    def test_image_link_close_to_each_other(self):
+        nodes = "This is a text with an image and link close to each other ![obi wan image](https://i.imgur.com/fJRm4Vk.jpeg)[link](https://boot.dev)"
+        new_nodes = text_to_textnodes(nodes)
+        expected = [
+            TextNode("This is a text with an image and link close to each other ", TextType.TEXT),
+            TextNode("obi wan image", TextType.IMAGE, "https://i.imgur.com/fJRm4Vk.jpeg"),
+            TextNode("link", TextType.LINK, "https://boot.dev"),
         ]
         self.assertEqual(new_nodes, expected)
