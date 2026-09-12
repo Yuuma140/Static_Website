@@ -1,5 +1,6 @@
 import unittest
-from markdown_blocks import markdown_to_blocks, block_to_block_type, BlockType
+from markdown_blocks import markdown_to_blocks, block_to_block_type, BlockType, markdown_to_html_node
+from htmlnode import HTMLNode, ParentNode
 
 class TestMarkdownBlocks(unittest.TestCase):
     def test_markdown_to_blocks(self):
@@ -138,3 +139,43 @@ This is a **bolded** paragraph
 2. This is another element"""
         result = block_to_block_type(block)
         self.assertEqual(result, BlockType.ORDERED_LIST)
+
+    def test_heading_to_html_node(self):
+        block = "### This is 3rd level heading"
+        node = markdown_to_html_node(block)
+        result = node.to_html()
+        self.assertEqual(result, "<div><h3>This is 3rd level heading</h3></div>")
+
+    def test_paragraph_to_html_node(self):
+        block = """This is just a plain text
+with the multiline paragraphs"""
+        node = markdown_to_html_node(block)
+        result = node.to_html()
+        self.assertEqual(result, "<div><p>This is just a plain text with the multiline paragraphs</p></div>")
+
+    def test_paragraph_to_html_node_inline_markdown(self):
+        block = "This is just a plain text with a **bold** word and an _italic_ word"
+        node = markdown_to_html_node(block)
+        result = node.to_html()
+        self.assertEqual(result, "<div><p>This is just a plain text with a <b>bold</b> word and an <i>italic</i> word</p></div>")
+
+    def test_blockquote_to_html_node(self):
+        block = """> This is a quote with **bold** word and
+>with a multiline quote"""
+        node = markdown_to_html_node(block)
+        result = node.to_html()
+        self.assertEqual(result, "<div><blockquote>This is a quote with <b>bold</b> word and with a multiline quote</blockquote></div>")
+
+    def test_ul_to_html_node(self):
+        block = """- This is a list item
+- This is also a list item"""
+        node = markdown_to_html_node(block)
+        result = node.to_html()
+        self.assertEqual(result, "<div><ul><li>This is a list item</li><li>This is also a list item</li></ul></div>")
+
+    def test_code_to_html_node(self):
+        block = """```
+This is a code block with a **bold** word```"""
+        node = markdown_to_html_node(block)
+        result = node.to_html()
+        self.assertEqual(result, "<div><pre><code>This is a code block with a **bold** word</code></pre></div>")
