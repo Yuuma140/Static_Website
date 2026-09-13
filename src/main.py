@@ -1,8 +1,8 @@
-from textnode import TextType, TextNode
+from copystatic import ensure_clean_directory, copy_directory_to_another
 
 def main():
-    node = TextNode("This is some anchor text", TextType.LINK, "https://www.bootdev.dev")
-    print(node)
+    ensure_clean_directory("public")
+    copy_directory_to_another("static", "public")
 
 
 if __name__ == "__main__":
