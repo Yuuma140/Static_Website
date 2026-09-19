@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Exponential Time & P vs NP</title>
+    <link href="/Static_Website/index.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <article><div><h1>Exponential Time & P vs NP</h1><p><b>Core Idea:</b> Some problems can be solved efficiently (P), others can only be verified efficiently (NP), and the relationship between them is unproven.</p><h2>How It Works</h2><ul><li><b>P</b> — solvable in polynomial time</li><li><b>NP</b> — verifiable in polynomial time</li><li><b>NP-complete</b> — hardest problems in NP, all NP problems reduce to it</li><li><b>NP-hard</b> — at least as hard as NP, doesn't need to be in NP</li></ul><h2>Complexity</h2><p>Naive recursive branching (e.g. fibonacci) = O(2^n). One recursive call per step = O(n).</p><h2>Code Pattern</h2><p><b>Exponential — two branches per call</b></p><pre><code>def fib(n):
+    if n <= 1: return n
+    return fib(n-1) + fib(n-2)
+</code></pre><p><b>Polynomial — one call per step, or memoized</b></p><h2>When To Use</h2><p>Recognize when a brute-force approach is exponential — signals you need memoization, a different algorithm, or acceptance that the problem is genuinely hard.</p><p><a href="/Static_Website/">Back to home</a></p></div></article>
+  </body>
+</html>

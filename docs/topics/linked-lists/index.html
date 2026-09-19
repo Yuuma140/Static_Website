@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Linked Lists</title>
+    <link href="/Static_Website/index.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <article><div><h1>Linked Lists</h1><p><b>Core Idea:</b> Elements connected via pointers rather than index-based contiguous memory.</p><h2>How It Works</h2><p>Each node holds a value and a pointer to the next node. No direct index access — must traverse from the head.</p><h2>Complexity</h2><p>Insert/delete at known node — O(1). Search/access by position — O(n).</p><h2>Code Pattern</h2><pre><code>class Node:
+    def __init__(self, val):
+        self.val = val
+        self.next = None
+</code></pre><h2>When To Use</h2><p>Frequent insertions/deletions where order matters more than random access.</p><p><a href="/Static_Website/">Back to home</a></p></div></article>
+  </body>
+</html>

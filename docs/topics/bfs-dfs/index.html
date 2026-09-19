@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BFS and DFS</title>
+    <link href="/Static_Website/index.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <article><div><h1>BFS and DFS</h1><p><b>Core Idea:</b> Two strategies for traversing a graph — breadth first (level by level) vs depth first (as deep as possible).</p><h2>How It Works</h2><ul><li><b>BFS</b> — uses a QUEUE, visits neighbors level by level</li><li><b>DFS</b> — uses a STACK (or recursion), goes deep before backtracking</li></ul><h2>Complexity</h2><p>Both O(V + E) — vertices plus edges.</p><h2>Code Pattern</h2><p><b>BFS and DFS</b></p><pre><code>queue = deque([start])
+visited = set()
+stack = [start]
+</code></pre><p><b>or recursive calls</b></p><h2>When To Use</h2><ul><li>BFS → shortest path in unweighted graph, level-order needs</li><li>DFS → exploring all paths, cycle detection, backtracking problems</li></ul><p><a href="/Static_Website/">Back to home</a></p></div></article>
+  </body>
+</html>

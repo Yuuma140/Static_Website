@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Binary Trees (BST)</title>
+    <link href="/Static_Website/index.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <article><div><h1>Binary Trees (BST)</h1><p><b>Core Idea:</b> Hierarchical structure — left child smaller, right child larger than parent.</p><h2>How It Works</h2><p>Each node has at most two children. Search/insert by comparing and moving left or right.</p><h2>Complexity</h2><p>Balanced — O(log n) search/insert/delete. Unbalanced — degrades to O(n).</p><h2>Code Pattern</h2><pre><code>class BSTNode:
+    def insert(self, val):
+        if val < self.val:
+            go left
+        else:
+            go right
+</code></pre><h2>When To Use</h2><p>Ordered data requiring fast search, insert, delete, and range queries.</p><p><a href="/Static_Website/">Back to home</a></p></div></article>
+  </body>
+</html>

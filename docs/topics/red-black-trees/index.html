@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Red Black Trees</title>
+    <link href="/Static_Website/index.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <article><div><h1>Red Black Trees</h1><p><b>Core Idea:</b> Self-balancing binary tree using color rules to guarantee O(log n).</p><h2>How It Works</h2><p>Every node red or black, root always black, no two adjacent red nodes, equal black-height on every path. Rotations restore these rules after insert/delete.</p><h2>Complexity</h2><p>Guaranteed O(log n) for search/insert/delete, even worst case.</p><h2>Code Pattern</h2><pre><code>def rotate_left(self, pivot_parent):
+    pivot = pivot_parent.right
+    pivot_parent.right = pivot.left
+    # reassign parent pointers
+</code></pre><h2>When To Use</h2><p>When guaranteed balanced performance matters more than simplicity — used internally in many language libraries.</p><p><a href="/Static_Website/">Back to home</a></p></div></article>
+  </body>
+</html>

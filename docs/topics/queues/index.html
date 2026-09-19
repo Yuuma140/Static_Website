@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Queues</title>
+    <link href="/Static_Website/index.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <article><div><h1>Queues</h1><p><b>Core Idea:</b> FIFO — First In, First Out — like a line at a shop.</p><h2>How It Works</h2><p>Add to back, remove from front.</p><h2>Complexity</h2><p>enqueue, dequeue — O(1) using deque (O(n) with plain list)</p><h2>Code Pattern</h2><pre><code>from collections import deque
+class Queue:
+    def __init__(self):
+        self.items = deque()
+    def enqueue(self, item):
+        self.items.append(item)
+    def dequeue(self):
+        return self.items.popleft()
+</code></pre><h2>When To Use</h2><p>Task scheduling, print queues, BFS implementation.</p><p><a href="/Static_Website/">Back to home</a></p></div></article>
+  </body>
+</html>

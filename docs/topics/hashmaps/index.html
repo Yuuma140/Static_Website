@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hashmaps</title>
+    <link href="/Static_Website/index.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <article><div><h1>Hashmaps</h1><p><b>Core Idea:</b> Key-value storage using a hash function to compute array index directly.</p><h2>How It Works</h2><p>Hash function converts key into an array index. Collisions handled via chaining or open addressing.</p><h2>Complexity</h2><p>O(1) average for insert/search/delete. O(n) worst case with heavy collisions.</p><h2>Code Pattern</h2><pre><code>my_dict = {}
+my_dict["key"] = "value"
+</code></pre><h2>When To Use</h2><p>Fast lookups by key, counting frequencies, caching/memoization.</p><p><a href="/Static_Website/">Back to home</a></p></div></article>
+  </body>
+</html>

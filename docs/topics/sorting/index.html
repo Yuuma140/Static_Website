@@ -1,0 +1,13 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sorting Algorithms</title>
+    <link href="/Static_Website/index.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <article><div><h1>Sorting Algorithms</h1><p><b>Core Idea:</b> Different tradeoffs between time, space, and stability for ordering data.</p><h2>How It Works</h2><ul><li><b>Bubble</b> — compares adjacent pairs, bubbles largest to end</li><li><b>Insertion</b> — builds sorted portion, walks new elements left</li><li><b>Selection</b> — finds minimum, one swap per pass</li><li><b>Merge</b> — splits in half recursively, merges back sorted</li><li><b>Quick</b> — picks pivot, partitions smaller/larger, recurses</li></ul><h2>Complexity</h2><ul><li><b>Bubble</b> — Best: O(n), Avg: O(n²), Worst: O(n²), Space: O(1), Stable: Yes</li><li><b>Insertion</b> — Best: O(n), Avg: O(n²), Worst: O(n²), Space: O(1), Stable: Yes</li><li><b>Selection</b> — Best: O(n²), Avg: O(n²), Worst: O(n²), Space: O(1), Stable: No</li><li><b>Merge</b> — Best: O(n log n), Avg: O(n log n), Worst: O(n log n), Space: O(n), Stable: Yes</li><li><b>Quick</b> — Best: O(n log n), Avg: O(n log n), Worst: O(n²), Space: O(log n), Stable: No</li></ul><h2>When To Use</h2><ul><li>Small/nearly sorted → Insertion</li><li>Guaranteed performance → Merge</li><li>General purpose → Quick</li></ul><p><a href="/Static_Website/">Back to home</a></p></div></article>
+  </body>
+</html>

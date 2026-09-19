@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tries</title>
+    <link href="/Static_Website/index.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <article><div><h1>Tries</h1><p><b>Core Idea:</b> Tree structure where each path from root represents a string, built from nested character mappings.</p><h2>How It Works</h2><p>Each node holds children mapped by character. Following a path spells out a word.</p><h2>Complexity</h2><p>Insert/search O(m) where m = word length, not dependent on number of words stored.</p><h2>Code Pattern</h2><pre><code>class TrieNode:
+    def __init__(self):
+        self.children = {}
+        self.is_end = False
+</code></pre><h2>When To Use</h2><p>Autocomplete, prefix search, spell check, dictionary lookups.</p><p><a href="/Static_Website/">Back to home</a></p></div></article>
+  </body>
+</html>

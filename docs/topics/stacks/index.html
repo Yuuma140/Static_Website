@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Stacks</title>
+    <link href="/Static_Website/index.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <article><div><h1>Stacks</h1><p><b>Core Idea:</b> LIFO — Last In, First Out — like a stack of plates.</p><h2>How It Works</h2><p>Add and remove only from the top.</p><h2>Complexity</h2><p>push, pop, peek, isEmpty — all O(1)</p><h2>Code Pattern</h2><pre><code>class Stack:
+    def __init__(self):
+        self.items = []
+    def push(self, item):
+        self.items.append(item)
+    def pop(self):
+        return self.items.pop()
+</code></pre><h2>When To Use</h2><p>Function call tracking, undo functionality, browser history, balanced bracket checking, DFS implementation.</p><p><a href="/Static_Website/">Back to home</a></p></div></article>
+  </body>
+</html>

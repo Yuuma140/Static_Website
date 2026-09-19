@@ -1,46 +1,30 @@
-# Tolkien Fan Club
+# DSA Reference Site
 
-![JRR Tolkien sitting](/images/tolkien.png)
+![DSA banner or diagram](/images/dsa-banner.jpg)
 
-Here's the deal, **I like Tolkien**.
+Personal reference for **Data Structures and Algorithms** — built while going through Boot.dev's DSA course.
 
-> "I am in fact a Hobbit in all but size."
+> "Know yourself and know your enemy — in a hundred battles you will never be defeated."
 >
-> -- J.R.R. Tolkien
+> -- Sun Tzu
 
-## Blog posts
+## Topics
 
-- [Why Glorfindel is More Impressive than Legolas](/blog/glorfindel)
-- [Why Tom Bombadil Was a Mistake](/blog/tom)
-- [The Unparalleled Majesty of "The Lord of the Rings"](/blog/majesty)
+- [Big-O Notation](/topics/big-o)
+- [Sorting Algorithms](/topics/sorting)
+- [Exponential Time & P vs NP](/topics/exponential-time)
+- [Stacks](/topics/stacks)
+- [Queues](/topics/queues)
+- [Linked Lists](/topics/linked-lists)
+- [Binary Trees](/topics/binary-trees)
+- [Red Black Trees](/topics/red-black-trees)
+- [Hashmaps](/topics/hashmaps)
+- [Tries](/topics/tries)
+- [Graphs](/topics/graphs)
+- [BFS and DFS](/topics/bfs-dfs)
 
-## Reasons I like Tolkien
+## Notes format
 
-- You can spend years studying the legendarium and still not understand its depths
-- It can be enjoyed by children and adults alike
-- Disney _didn't ruin it_ (okay, but Amazon might have)
-- It created an entirely new genre of fantasy
+Each topic follows: Core Idea, How It Works, Complexity, Code Pattern, When To Use.
 
-## My favorite characters (in order)
-
-1. Gandalf
-2. Bilbo
-3. Sam
-4. Glorfindel
-5. Galadriel
-6. Elrond
-7. Thorin
-8. Sauron
-9. Aragorn
-
-Here's what `elflang` looks like (the perfect coding language):
-
-```
-func main(){
-    fmt.Println("Aiya, Ambar!")
-}
-```
-
-Want to get in touch? [Contact me here](/contact).
-
-This site was generated with a custom-built [static site generator](https://www.boot.dev/courses/build-static-site-generator-python) from the course on [Boot.dev](https://www.boot.dev).
+This site was generated with a custom-built [static site generator](#) built in Python, going through [Boot.dev](https://www.boot.dev).
